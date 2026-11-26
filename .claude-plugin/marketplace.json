@@ -1,0 +1,12 @@
+{
+  "name": "rigol-scope",
+  "description": "Rigol oscilloscope control for Claude",
+  "owner": { "name": "Engentus" },
+  "plugins": [
+    {
+      "name": "rigol-scope",
+      "source": "./",
+      "description": "MCP server and skills for Rigol oscilloscopes (verified on a DHO804)."
+    }
+  ]
+}

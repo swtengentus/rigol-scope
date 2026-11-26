@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "scope": {
+      "command": "uv",
+      "args": ["run", "--directory", "${CLAUDE_PLUGIN_ROOT}/server", "rigol-scope-mcp"],
+      "env": {
+        "UV_PROJECT_ENVIRONMENT": "${CLAUDE_PLUGIN_DATA}/venv",
+        "LABMCP_ADDRESS": "${user_config.scope_address}",
+        "LABMCP_OPTIONS": "serial=${user_config.scope_serial}",
+        "LABMCP_READ_ONLY": "${user_config.read_only}"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "rigol-scope",
+  "version": "0.2.0",
+  "description": "Control a Rigol oscilloscope (verified on a DHO804) from Claude: settings, acquisition, triggers, measurements, 16-bit waveform capture and screenshots, plus skills for first-time setup and safe operation.",
+  "author": { "name": "Engentus" },
+  "license": "Apache-2.0",
+  "keywords": ["oscilloscope", "rigol", "dho804", "scpi", "visa", "lab-instrument", "mcp"],
+  "userConfig": {
+    "scope_address": {
+      "type": "string",
+      "title": "Scope address (blank = find it on USB)",
+      "description": "Leave blank to find the Rigol on USB automatically. For LAN use TCPIP0::<ip>::INSTR or tcp://<ip>:5555. A USB resource string such as USB0::0x1AB1::0x044D::<serial>::INSTR also works.",
+      "default": ""
+    },
+    "scope_serial": {
+      "type": "string",
+      "title": "Scope serial number (only if several Rigols are on USB)",
+      "description": "Used with a blank address to choose between several Rigol instruments connected by USB.",
+      "default": ""
+    },
+    "read_only": {
+      "type": "boolean",
+      "title": "Read-only mode",
+      "description": "Hide every tool that changes the scope's setup (channels, timebase, acquisition, triggers, run/stop). Measurements, captures and screenshots still work.",
+      "default": false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+[project]
+name = "rigol-scope-mcp"
+version = "0.2.0"
+description = "MCP server for Rigol digital oscilloscopes (verified on a DHO804): settings, acquisition, triggering, measurements, 16-bit waveform capture and screenshots over SCPI. A fork of labmcp-rigol-scope."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "K-Dense and LabMCP contributors" }, { name = "Engentus" }]
+keywords = ["mcp", "oscilloscope", "rigol", "scpi", "dho800", "dho804", "waveform"]
+# labmcp is pinned: the driver's VISA block reader uses two of its transport internals.
+dependencies = ["labmcp[visa]==0.1.2", "pyusb>=1.2"]
+
+[project.scripts]
+rigol-scope-mcp = "labmcp_rigol_scope.server:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/labmcp_rigol_scope"]

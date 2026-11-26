@@ -1,0 +1,20 @@
+rigol-scope-mcp
+A fork of labmcp-rigol-scope 0.1.2
+  https://github.com/K-Dense-AI/lab-instrument-mcps/tree/main/servers/engineering/rigol-oscilloscope
+  Copyright K-Dense and LabMCP contributors, licensed under the Apache License, Version 2.0.
+
+Modifications (2026-11-26, Engentus), also under the Apache License, Version 2.0:
+
+- driver.py: 16-bit WORD waveform reads; whole-message binary block reads on VISA sessions with the
+  termination character disabled; full-record window selection and verification for DHO deep-memory
+  reads; set_acquisition with read-back verification; set_trigger_options, set_pulse_trigger and
+  set_timeout_trigger; refusal of four measurement items on the DHO family; clearer empty-memory error.
+- server.py: new tools set_acquisition, set_trigger_options, set_pulse_trigger, set_timeout_trigger;
+  sample_format on capture_waveform; acquisition and trigger details in get_settings; automatic USB
+  discovery when no address is given.
+- discovery.py: new.
+- simulator.py: WORD blocks, acquisition type / averages / memory depth, the new trigger commands,
+  :WAVeform:STARt? / :STOP?.
+- tests/test_server.py: tests for all of the above.
+- pyproject.toml: renamed to rigol-scope-mcp 0.2.0; labmcp pinned to 0.1.2.
+- server.json (upstream MCP registry manifest) removed; README rewritten.
